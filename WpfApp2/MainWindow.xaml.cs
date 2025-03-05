@@ -18,16 +18,20 @@ namespace WpfApp2 {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        List<string> lista = new List<string>() {
+            "első","második","harmadik"
+        };
         public MainWindow() {
             InitializeComponent();
+            listbox1.ItemsSource = lista;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-
+            label1.Content = int.Parse(textbox1.Text) * 2;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
+            label1.Content = listbox1.SelectedItem;
         }
 
         private void combobox1_SelectionChanged(object sender, SelectionChangedEventArgs e) {
