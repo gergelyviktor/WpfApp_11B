@@ -21,13 +21,30 @@ namespace WpfApp2 {
         List<string> lista = new List<string>() {
             "első","második","harmadik"
         };
+        List<string> lista2 = new List<string>() {
+            "asdfasd","hhdfhfgh","xcvbxcvbcv"
+        };
+        Dictionary<string, int> szotar1 = new Dictionary<string, int>() {
+            {"asdfasd",     1 },
+            {"hhdfhfgh",    2 },
+            {"xcvbxcvbcv",  3 }
+        };
+        //Dictionary<string, string> angolSzotar = new Dictionary<string, string>() {
+        //    {"én", "I" },
+        //    {"te", "you" },
+        //    {"ő",  "he" }
+        //};
         public MainWindow() {
             InitializeComponent();
             listbox1.ItemsSource = lista;
+            combobox1.ItemsSource = szotar1.Keys;
+            //listbox1.Items.Add("negyedik");
+            //combobox1.Items.Add("negyedik");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            label1.Content = int.Parse(textbox1.Text) * 2;
+            var eredmeny = (checkbox1.IsChecked == true) ? int.Parse(textbox1.Text) * 3 : int.Parse(textbox1.Text) * 2;
+            label1.Content = eredmeny;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -36,6 +53,14 @@ namespace WpfApp2 {
 
         private void combobox1_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e) {
+            label1.Content = sender.ToString();
+        }
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e) {
+            label1.Content = sender.ToString();
         }
     }
 }
